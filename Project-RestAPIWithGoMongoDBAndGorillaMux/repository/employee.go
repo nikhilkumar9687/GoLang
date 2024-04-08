@@ -53,15 +53,15 @@ func (r *EmployeeRepo) FindAllEmployee() ([] model.Employee, error) {
 
 func (r *EmployeeRepo) UpdateEmployeeByID(empID string, 
 							updateEmp *model.Employee) (int64, error) {
-		result, err := r.MongoCollection.UpdateOne(context.Background(),
-							bson.D{{Key: "employee_id", Value: empID}},
-							bson.D{{Key: "$set", Value: updateEmp}})
+	result, err := r.MongoCollection.UpdateOne(
+		context.Background(),
+		bson.D{{Key: "employee_id", Value: empID}},
+		bson.D{{Key: "$set", Value: updateEmp}},)
 		
-		if err != nil {
-			return 0, err
-		}
-
-		return result.ModifiedCount, nil
+	if err != nil {
+		return 0, err
+	}
+	return result.ModifiedCount, nil
 }
 
 func (r *EmployeeRepo) DeleteEmployeeByID(empID string) (int64, error) {

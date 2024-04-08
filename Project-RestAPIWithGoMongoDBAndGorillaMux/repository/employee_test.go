@@ -65,7 +65,7 @@ func TestMongoOperations (t *testing.T) {
 
 	t.Run("Insert emp 2", func(t *testing.T) {
 		emp := model.Employee {
-			Name: "Nikhil Kumar",
+			Name: "Nikhil",
 			Department: "Go Learner",
 			EmployeeID: emp2,
 		}
@@ -76,5 +76,15 @@ func TestMongoOperations (t *testing.T) {
 			t.Fatal("insert 2 failed", err)
 		}
 		t.Log("insert 2 successful", result)
+	})
+
+	t.Run("Get Emp 1", func(t *testing.T) {
+		result, err := empRepo.FindEmployeeByID(emp1)
+
+		if err != nil {
+			t.Fatal("Get emp 1 failed", err)
+		}
+
+		t.Log("Get emp 1 passed", result)
 	})
 }

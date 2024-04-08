@@ -58,8 +58,8 @@ func main() {
 	r := mux.NewRouter()
 	
 	r.HandleFunc("/health", healthHandler).Methods(http.MethodGet)
+	
 	r.HandleFunc("/employee",  empService.CreateEmployee).Methods(http.MethodPost)
-
 	r.HandleFunc("/employee/{id}",  empService.GetEmployeeByID).Methods(http.MethodGet)
 	r.HandleFunc("/employee",  empService.GetAllEmployee).Methods(http.MethodGet)
 	r.HandleFunc("/employee",  empService.UpdateEmployeeByID).Methods(http.MethodPut)

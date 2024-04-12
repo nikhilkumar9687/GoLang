@@ -2,7 +2,7 @@ package models
 
 import (
 	"github.com/jinzhu/gorm"
-	"github.com/Project-RestAPIWithGoMongoDBAndGorillaMux/BookStore/pkg/config"
+	"github.com/nikhilkumar9687/GoLang/BookStore/pkg/config"
 )
 
 var db *gorm.DB
